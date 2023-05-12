@@ -121,7 +121,7 @@ public abstract class AbstractFlyingObject {
     }
 
     public void setLocationX(double locationX) {
-        this.locationX = (int) locationX;
+        this.locationX = locationX;
     }
 
     public double getLocationY() {
@@ -129,7 +129,7 @@ public abstract class AbstractFlyingObject {
     }
 
     public void setLocationY(double locationY) {
-        this.locationY = (int) locationY;
+        this.locationY = locationY;
     }
 
     public void setLocation(double locationX, double locationY){

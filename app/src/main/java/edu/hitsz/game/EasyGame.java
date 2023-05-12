@@ -7,8 +7,8 @@ import edu.hitsz.ImageManager;
 
 public class EasyGame extends BaseGame{
 
-    public EasyGame(Context context, Handler handler) {
-        super(context,handler);
+    public EasyGame(Context context, Handler handler, boolean withMusic) {
+        super(context, handler, withMusic);
         this.backGround = ImageManager.BACKGROUND1_IMAGE;
     }
 

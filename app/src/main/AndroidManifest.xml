@@ -13,6 +13,9 @@
             android:name="edu.hitsz.activity.GameActivity"
             android:exported="false" />
         <activity
+            android:name="edu.hitsz.activity.RankActivity"
+            android:exported="false" />
+        <activity
             android:name="edu.hitsz.activity.MainActivity"
             android:exported="true" >
             <intent-filter>

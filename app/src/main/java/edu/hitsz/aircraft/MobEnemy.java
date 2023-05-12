@@ -1,11 +1,7 @@
 package edu.hitsz.aircraft;
 
-
-import java.util.LinkedList;
-import java.util.List;
-
-import edu.hitsz.bullet.AbstractBullet;
-
+import edu.hitsz.activity.MainActivity;
+import edu.hitsz.shootStrategy.NoShootStrategy;
 
 /**
  * 普通敌机
@@ -13,16 +9,20 @@ import edu.hitsz.bullet.AbstractBullet;
  *
  * @author hitsz
  */
-public class MobEnemy extends AbstractAircraft {
+public class MobEnemy extends AbstractEnemy {
 
     public MobEnemy(double locationX, double locationY, double speedX, double speedY, int hp) {
-        super(locationX, locationY, speedX, speedY, hp);
+        super(locationX, locationY, speedX, speedY, hp, new NoShootStrategy());
+        this.score = 10;
     }
 
-
     @Override
-    public List<AbstractBullet> shoot() {
-        return new LinkedList<>();
+    public void forward() {
+        super.forward();
+        // 判定 y 轴向下飞行出界
+        if (locationY >= MainActivity.screenHeight) {
+            vanish();
+        }
     }
 
 }

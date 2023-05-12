@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public static int screenHeight;
 
     private int gameType=0;
+    private boolean withMusic = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Button medium_btn = findViewById(R.id.medium_btn);
         Button easy_btn = findViewById(R.id.easy_btn);
         Button hard_btn = findViewById(R.id.hard_btn);
+        Switch music_switch = findViewById(R.id.withMusic);
 
         getScreenHW();
 
@@ -33,20 +36,25 @@ public class MainActivity extends AppCompatActivity {
         medium_btn.setOnClickListener(view -> {
             gameType=1;
             intent.putExtra("gameType",gameType);
+            intent.putExtra("withMusic", withMusic);
             startActivity(intent);
         });
 
         easy_btn.setOnClickListener(view -> {
             gameType =2;
             intent.putExtra("gameType",gameType);
+            intent.putExtra("withMusic", withMusic);
             startActivity(intent);
         });
 
         hard_btn.setOnClickListener(view -> {
             gameType =3;
             intent.putExtra("gameType",gameType);
+            intent.putExtra("withMusic", withMusic);
             startActivity(intent);
         });
+
+        music_switch.setOnCheckedChangeListener((compoundButton, b) -> withMusic = b);
     }
     public void getScreenHW(){
         //定义DisplayMetrics 对象
