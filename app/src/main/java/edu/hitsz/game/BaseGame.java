@@ -21,6 +21,7 @@ import java.util.List;
 
 import edu.hitsz.ImageManager;
 import edu.hitsz.MusicPlayer;
+import edu.hitsz.activity.GameActivity;
 import edu.hitsz.activity.MainActivity;
 import edu.hitsz.activity.RankActivity;
 import edu.hitsz.aircraft.AbstractAircraft;
@@ -49,8 +50,8 @@ public abstract class BaseGame extends SurfaceView implements SurfaceHolder.Call
     public static final String TAG = "BaseGame";
     boolean mbLoop = false; //控制绘画线程的标志位
     private SurfaceHolder mSurfaceHolder;
-    private Canvas canvas;  //绘图的画布
-    private Paint mPaint;
+    protected Canvas canvas;  //绘图的画布
+    protected Paint mPaint;
     private Handler handler;
 
     //点击屏幕位置
@@ -87,8 +88,8 @@ public abstract class BaseGame extends SurfaceView implements SurfaceHolder.Call
     protected int enemyMaxNumber = 5;
 
     private boolean gameOverFlag = false;
-    private int score = 0;
-    private int time = 0;
+    protected int score = 0;
+    protected int time = 0;
 
 
     /**
@@ -354,7 +355,7 @@ public abstract class BaseGame extends SurfaceView implements SurfaceHolder.Call
      * <p>
      * 无效的原因可能是撞击或者飞出边界
      */
-    private void postProcessAction() {
+    protected void postProcessAction() {
         enemyBullets.removeIf(AbstractFlyingObject::notValid);
         heroBullets.removeIf(AbstractFlyingObject::notValid);
         enemyAircrafts.removeIf(AbstractFlyingObject::notValid);
@@ -467,7 +468,7 @@ public abstract class BaseGame extends SurfaceView implements SurfaceHolder.Call
         }
     }
 
-    private void paintScoreAndLife() {
+    protected void paintScoreAndLife() {
         int x = 10;
         int y = 40;
 
@@ -564,7 +565,7 @@ public abstract class BaseGame extends SurfaceView implements SurfaceHolder.Call
         message.what = 1 ;
         message.arg1 = this.score;
         Log.i(TAG, "score: " + this.score);
-        Log.i(TAG, "Game address: " + BaseGame.this);
+//        Log.i(TAG, "Game address: " + BaseGame.this);
         handler.sendMessage(message);
     }
 }

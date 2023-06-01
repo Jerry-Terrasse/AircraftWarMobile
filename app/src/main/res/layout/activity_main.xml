@@ -14,7 +14,7 @@ android:orientation="vertical">
         android:layout_marginTop="40dp"
         android:layout_marginRight="40dp"
         android:foregroundGravity="clip_vertical"
-        android:gravity="center_vertical"
+        android:gravity="clip_horizontal|center_vertical"
         android:orientation="vertical">
 
         <Button
@@ -49,6 +49,19 @@ android:orientation="vertical">
             android:textSize="20sp"
             android:textStyle="bold"
             android:typeface="serif"></Button>
+
+        <Button
+            android:id="@+id/online_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FF9800"
+            android:text="登录"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:rippleColor="@color/teal_200"></Button>
 
         <Switch
             android:id="@+id/withMusic"
